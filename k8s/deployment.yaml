@@ -5,7 +5,7 @@ kind: Deployment
 metadata:
 
   name: todo-deployment
-
+  namespace: django
   labels:
 
     app: todo-app
@@ -23,7 +23,7 @@ spec:
   template:
 
     metadata:
-
+      namespace: django
       labels:
 
         app: todo-app
@@ -34,7 +34,7 @@ spec:
 
       - name: todo-app
 
-        image: trainwithshubham/django-todo:latest
+        image: comprofessional/django-todo:latest
 
         ports:
 

@@ -5,14 +5,14 @@ kind: Pod
 metadata:
 
   name: todo-pod
-
+  namespace: django
 spec:
 
   containers:
 
   - name: todo-app
 
-    image: trainwithshubham/django-todo:latest
+    image: comprofessional/django-todo:latest
 
     ports:
 
