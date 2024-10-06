@@ -36,7 +36,9 @@ spec:
 
         image: comprofessional/django-todo:latest
 
-        ports:
+          #        ports:
 
-        - containerPort: 8000
-
+          #        - containerPort: 8000
+        env:
+        - name: PORT
+          value: "8001"  # Specify the port here
