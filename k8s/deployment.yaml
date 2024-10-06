@@ -1,44 +1,40 @@
 apiVersion: apps/v1
-
 kind: Deployment
-
 metadata:
-
-  name: todo-deployment
+  name: todo-app
   namespace: django
-  labels:
-
-    app: todo-app
-
 spec:
-
-  replicas: 3
-
+  replicas: 1
   selector:
-
     matchLabels:
-
       app: todo-app
-
   template:
-
     metadata:
-      namespace: django
       labels:
-
         app: todo-app
-
     spec:
-
       containers:
-
-      - name: todo-app
-
+      - name: todo-app-8000
         image: comprofessional/django-todo:latest
-
-          #        ports:
-
-          #        - containerPort: 8000
         env:
         - name: PORT
-          value: "8001"  # Specify the port here
+          value: "8000"
+        ports:
+        - containerPort: 8000
+
+      - name: todo-app-8001
+        image: comprofessional/django-todo:latest
+        env:
+        - name: PORT
+          value: "8001"
+        ports:
+        - containerPort: 8001
+
+      - name: todo-app-8002
+        image: comprofessional/django-todo:latest
+        env:
+        - name: PORT
+          value: "8002"
+        ports:
+        - containerPort: 8002
+
